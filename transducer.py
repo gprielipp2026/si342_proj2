@@ -85,6 +85,7 @@ class Transducer:
             #if '{name}' in output:
                 #output = output.format(name = self.saveVertName)
             print(output, file=self.outputFile, flush=True)
+            print(f'{output=}', flush=True)
 
 if __name__ == '__main__':
     M = ({0,1,3}, {'a','b','c'}, {'a','ba','b'}, \
