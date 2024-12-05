@@ -23,10 +23,20 @@ class Transducer:
         
         self.inputFile = open(inputFilename, 'r')
         self.outputFile = open(outputFilename, 'w')
-      
-        # start the machine running
-        self.running = True
-        self.run()
+
+    # write the internal data in .DOT format
+    def save(self, fn):
+        print("Saving transducer to '" + str(fn) + "'")
+        with open(fn, 'w') as fd:
+            fd.write('digraph {\n')
+            
+            for state in self.states:
+                for inp in self.alphaIn:
+                    if state in self.transitions and inp in self.transitions[state]:
+                        p, outp = self.transitions[state][inp]
+                        fd.write(f'{state} -> {p} [label="{inp}:{outp}"]\n')
+
+            fd.write('}')
 
     def stop(self):
         self.running = False
@@ -37,6 +47,8 @@ class Transducer:
         return self.running
 
     def run(self):
+        # start the machine running
+        self.running = True
         print("Transducer running")
         print(self.transitions)
         while self.running:
@@ -69,8 +81,8 @@ class Transducer:
         if output != self.blank:
             if '{data}' in output:
                 output = output.format(data = data)
-            if '{name}' in output:
-                output = output.format(name = self.saveVertName)
+            #if '{name}' in output:
+                #output = output.format(name = self.saveVertName)
             print(output, file=self.outputFile, flush=True)
 
 if __name__ == '__main__':
