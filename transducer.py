@@ -58,7 +58,8 @@ class Transducer:
                 print('received:', msg, data)
                 self.transition(msg, data)
             except Exception as e:
-                print('Error:', e) 
+                pass
+                #print('Error:', e) 
 
     def transition(self, msg, data):
         print(f'{self.curState} {msg} {data}', flush=True)
