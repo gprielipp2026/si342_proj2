@@ -82,8 +82,10 @@ class Transducer:
             self.stop()
 
         nextState, outputs = self.transitions[self.curState][msg]
-        self.curState = nextState
        
+        print(f'{self.curState} --{msg}:{outputs}--> {nextState}')
+        self.curState = nextState
+               
         for output in outputs:
             if '{data}' in output:
                 output = output.format(data = data)
