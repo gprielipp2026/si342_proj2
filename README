@@ -12,5 +12,5 @@
 
 # Notes:
 - There seems to be some weird bug where the transducer doesn't receive and respond to the "documentReady 0" - which is the first transition we have. 
-- The fix seems to be to close the triangle app with the "x" in the top right corner and stopping the main.py file with "ctrl+c". Then following the execution steps again.
+- The fix seems to be to close the triangle app with the "x" in the top right corner and restarting the triangle app as seen in step 4 above.
 - We have seen that it usually resolves itself on the second run through the steps.
