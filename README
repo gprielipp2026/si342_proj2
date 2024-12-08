@@ -1,0 +1,12 @@
+# Group Members:
+- Mia-Clare Kezal 263318
+- Nate Schmidt 265646
+- George Prielpp 265112
+
+# How to Run the Program:
+- execute the following steps in this order:
+1. Open two terminals; termA and termB
+2. In termA run: bash install.sh 
+3. After that finishes, in termA run: python3 main.py
+4. Once that is running, go to termB and run: ./triangle-app-v1.0
+

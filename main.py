@@ -1,13 +1,6 @@
 from transducer import Transducer
 
 if __name__ == '__main__':
-    # v1.0
-    #M = ({'i','s','t','t1','r','r1','r2','v','tr'}, \
-            #{'click','clickOnCanvas','clickRecenterButton', 'clickRecenterPane','clickRecenterTextBox','clickTriChooseButton','clickTriTypeChoice','documentReady','mouseDownVertex','mouseLeaveCanvas','mouseMove','mouseUpCanvas','recenterTextChange','recenterTextFail','recenterTextSucc'}, \
-            #{'noop {data}','showTP {data}','hideTP {data}','resetT {data}','showCP {data}','hideCP {data}','checkCT {data}','errorCT {data}','moveC {data}','selectV {data}','moveV {data}','resetV {data}'}, \
-            #(('r','clickTriChooseButton','hideCP {data}','tr'),('tr','e','showTP {data}','t'),('t','clickRecenterButton','hideTP {data}','tr'),('tr','e','showCP {data}','r'),('i','documentReady','noop {data}','s'),('s','clickTriChooseButton','showTP {data}', 't'),('t','clickTriTypeChoice','resetT {data}','t1'),('t','click','hideTP {data}','s'),('t','clickOnCanvas','hideTP {data}','s'),('t1','e','hideTP {data}','s'),('s','clickRecenterButton','showCP {data}','r'), ('r','clickRecenterTextBox','noop {data}','r'),('r','clickRecenterPane','noop {data}','r'),('r','recenterTextChange','checkCT {data}','r1'),('r','click','hideCP {data}','s'),('r','clickOnCanvas','hideCP {data}','s'),('r1','recenterTextFail','errorCT {data}','r'),('r1','recenterTextSucc','moveC {data}','r2'),('r2','e','hideCP {data}','s'),('s','mouseDownVertex','selectV {data}','v'),('v','mouseMoveVertex','moveV {data}','v'),('v','mouseUpCanvas','noop {data}','s'),('v','mouseLeaveCanvas','resetV {data}','s')), \
-            #'i',
-         #'e') 
     """
     M = (states, alpha_in, alpha_out, transitions, start_state)
     transition = (state1, input_symbol, [output_symbol1, ..., output_symbolK], state2)
@@ -20,9 +13,8 @@ if __name__ == '__main__':
            'i'
         )
 
-    # changed v->s (mouseUpCanvas:selectV {name}:{coord}) to v->s(mouseUpCanvas:noop 0)
     T = Transducer(M, 'fromGUI', 'toGUI')
-    T.save("proj2.dotf")
+    #T.save("proj2.dotf")
     T.run()
     while T.isRunning():
         pass
