@@ -9,9 +9,9 @@ class Transducer:
         self.states = {x for x in T[0]}
         self.alphaIn = {x for x in T[1]}
         self.alphaOut = {x for x in T[2]}
-        # delta element = (q in Q, x in Sigma_in, [o for o in Sigma_out], p in Q)
+        # delta element = (q in Q, x in Sigma_in, p in Q, [o for o in Sigma_out])
         self.transitions = {}
-        for q, x, o, p in T[3]:
+        for q, x, p, o in T[3]:
             if q not in self.states:
                 raise Exception(f'"{q}" is not a valid state')
             if x not in self.alphaIn: 
